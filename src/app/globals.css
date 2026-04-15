@@ -1,19 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  color-scheme: dark;
+}
+
+html {
+  @apply antialiased;
 }
 
 body {
   @apply bg-gray-950 text-white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Dark Netflix theme */
-html {
-  @apply dark;
-  color-scheme: dark;
 }
