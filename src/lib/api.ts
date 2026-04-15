@@ -3,6 +3,13 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 // Request deduplication map to avoid duplicate simultaneous requests
 const requestCache = new Map<string, Promise<any>>();
 
+// Helper to get image URL - load directly, skip proxy to avoid ngrok stream limits
+export function getImageUrl(url: string): string {
+  // Return URL as-is - komiku.org images are already HTTPS
+  // Skip proxy entirely to avoid ngrok HTTP/2 stream exhaustion on free tier
+  return url;
+}
+
 export interface Manga {
   title: string;
   description: string;
